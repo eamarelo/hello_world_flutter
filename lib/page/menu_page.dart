@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world_flutter/page/calculator_page.dart';
 import 'package:hello_world_flutter/page/gallery_image_page.dart';
 import 'package:hello_world_flutter/page/hero_animation_page.dart';
 import 'package:hello_world_flutter/page/login_page.dart';
@@ -61,6 +62,21 @@ class _MenuPageWidgetState extends State<MenuPageWidget> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
+                    RaisedButton(
+                      color: Colors.blue,
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            'Calculator',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      onPressed: () {
+                        print('Calculator clicked');
+                        _goToCalculatorPage();
+                      },
+                    ),
                     RaisedButton(
                       color: Colors.blue,
                       child: Row(
@@ -189,6 +205,12 @@ class _MenuPageWidgetState extends State<MenuPageWidget> {
   _goToAnimationPage() {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return HeroAnimationPage();
+    }));
+  }
+
+  _goToCalculatorPage() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return CalculatorWidgetPage();
     }));
   }
 }
