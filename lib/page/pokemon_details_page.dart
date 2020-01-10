@@ -29,7 +29,9 @@ class PokemonDetailsPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              pokemon.name ?? 'Attack nul',
+              pokemon.attacks.length == 0
+                  ? 'Attack nul'
+                  : pokemon.attacks.toString(),
               style: TextStyle(color: Colors.brown),
             ),
           ),
