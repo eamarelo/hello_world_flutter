@@ -6,6 +6,7 @@ import 'package:hello_world_flutter/page/hero_animation_page.dart';
 import 'package:hello_world_flutter/page/login_page.dart';
 import 'package:hello_world_flutter/page/network_image_page.dart';
 import 'package:hello_world_flutter/page/object_list_page.dart';
+import 'package:hello_world_flutter/page/pokemon_list_page.dart';
 import 'package:hello_world_flutter/page/random_cat_rest_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -77,6 +78,21 @@ class _MenuPageWidgetState extends State<MenuPageWidget> {
                       onPressed: () {
                         print('RandomCat');
                         _goToRandomCat();
+                      },
+                    ),
+                    RaisedButton(
+                      color: Colors.blue,
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            'Pokemon list',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      onPressed: () {
+                        print('Pokemon list');
+                        _goToPokemonListPage();
                       },
                     ),
                     RaisedButton(
@@ -255,6 +271,12 @@ class _MenuPageWidgetState extends State<MenuPageWidget> {
   _goToRandomCat() {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return RandomCatRestPage();
+    }));
+  }
+
+  _goToPokemonListPage() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return PokemonListPage();
     }));
   }
 }

@@ -9,6 +9,7 @@ class CatAPI {
     var response = await http.get((randomCatUrl));
 
     if (response.statusCode != 200) {
+      print(response);
       return null;
     }
     return Cat.fromJSON(jsonDecode(response.body));

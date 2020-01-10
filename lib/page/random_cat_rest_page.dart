@@ -28,27 +28,33 @@ class _RandomCatRestPageState extends State<RandomCatRestPage> {
       ),
       body: Column(
         children: <Widget>[
-          Expanded(
-              child: CachedNetworkImage(
-            imageUrl: _currentCat.imageURL,
-            placeholder: (context, url) => Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                    height: 48, width: 48, child: CircularProgressIndicator()),
-              ],
-            ),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-          )),
+          _currentCat == null
+              ? Container()
+              : Expanded(
+                  child: CachedNetworkImage(
+                  imageUrl: _currentCat.imageURL,
+                  placeholder: (context, url) => Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                          height: 48,
+                          width: 48,
+                          child: CircularProgressIndicator()),
+                    ],
+                  ),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                )),
           Spacer(),
           Row(
             children: <Widget>[
               _currentCat == null
                   ? Container()
                   : Expanded(
+                      child: SingleChildScrollView(
                       child: Text(
-                      _currentCat.imageURL,
-                      style: TextStyle(fontSize: 24),
+                        _currentCat.imageURL,
+                        style: TextStyle(fontSize: 24),
+                      ),
                     ))
             ],
           )
