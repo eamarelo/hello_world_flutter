@@ -24,22 +24,51 @@ class PokemonDetailsPage extends StatelessWidget {
         child: CircularProgressIndicator(),
       );
     } else {
-      return Center(
-        child: Row(children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              pokemon.attacks.length == 0
-                  ? 'Attack nul'
-                  : pokemon.attacks.toString(),
-              style: TextStyle(color: Colors.brown),
-            ),
+      return Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                pokemon.attacks.length == 0
+                    ? 'Attack nul'
+                    : pokemon.attacks.toString(),
+                style: TextStyle(color: Colors.brown),
+              ),
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CachedNetworkImage(imageUrl: pokemon.imageURL),
+          Row(
+            children: <Widget>[
+              Text(pokemon.weakness.length == 0
+                  ? 'Weaknesses nul'
+                  : pokemon.weakness.toString()),
+            ],
           ),
-        ]),
+          Row(
+            children: <Widget>[
+              Text(pokemon.type.length == 0
+                  ? 'types nul'
+                  : pokemon.type.toString()),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Text(pokemon.resistance.length == 0
+                  ? 'resistance nul'
+                  : pokemon.resistance.toString()),
+            ],
+          ),
+          Row(
+            children: <Widget>[Text(pokemon.series)],
+          ),
+          Row(
+            children: <Widget>[Text(pokemon.set)],
+          ),
+          Row(
+            children: <Widget>[
+              CachedNetworkImage(imageUrl: pokemon.imageURL),
+            ],
+          ),
+        ],
       );
     }
   }
